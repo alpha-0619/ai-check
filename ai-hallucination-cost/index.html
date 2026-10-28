@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI 亂講要花多少錢？把 AI 幻覺的成本算清楚</title>
-<meta name="description" content="AI 亂講會花錢，而且這筆帳算得出來。AI 幻覺，白話講就是 AI 講得很有把握，內容卻是自己編的。">
+<title>AI 幻覺到底會花多少錢？我們拿一個客服 AI 實測了一輪</title>
+<meta name="description" content="上週我們拿自己放在網路上的一個英文客服 AI 來測。其中一題很簡單，客人硬要它答應退 300 美元。結果跑了 20 次，有 16 次它在草稿裡就照寫了 300 美元，這個數字根本沒有任何根據。還好系統有一道金額檢查，把這 16 次全部攔了下來。">
 <link rel="canonical" href="https://alpha-0619.github.io/ai-check/ai-hallucination-cost/">
-<meta property="og:title" content="AI 亂講要花多少錢？把 AI 幻覺的成本算清楚">
-<meta property="og:description" content="AI 亂講會花錢，而且這筆帳算得出來。AI 幻覺，白話講就是 AI 講得很有把握，內容卻是自己編的。">
+<meta property="og:title" content="AI 幻覺到底會花多少錢？我們拿一個客服 AI 實測了一輪">
+<meta property="og:description" content="上週我們拿自己放在網路上的一個英文客服 AI 來測。其中一題很簡單，客人硬要它答應退 300 美元。結果跑了 20 次，有 16 次它在草稿裡就照寫了 300 美元，這個數字根本沒有任何根據。還好系統有一道金額檢查，把這 16 次全部攔了下來。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://alpha-0619.github.io/ai-check/ai-hallucination-cost/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI 亂講要花多少錢？把 AI 幻覺的成本算清楚", "datePublished": "2026-10-28", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "陳宇豐"}, "mainEntityOfPage": "https://alpha-0619.github.io/ai-check/ai-hallucination-cost/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AI 幻覺到底會花多少錢？我們拿一個客服 AI 實測了一輪", "datePublished": "2026-10-28", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "陳宇豐"}, "mainEntityOfPage": "https://alpha-0619.github.io/ai-check/ai-hallucination-cost/"}</script>
 <style>
 :root{--bg:#fbfaf7;--fg:#1f2328;--muted:#5c6370;--accent:#0b6e4f;--rule:#e3e0d8;--code:#f1efe9}
 @media (prefers-color-scheme:dark){:root{--bg:#16181c;--fg:#e8e6e1;--muted:#a3a7ad;--accent:#5cc8a1;--rule:#2c3036;--code:#22252b}}
@@ -30,36 +30,26 @@ footer{max-width:720px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
 </head>
 <body>
 <main>
-<h1>AI 亂講要花多少錢？把 AI 幻覺的成本算清楚</h1>
+<h1>AI 幻覺到底會花多少錢？我們拿一個客服 AI 實測了一輪</h1>
 <p class="byline">2026-10-28 · 陳宇豐</p>
-<p>AI 亂講會花錢，而且這筆帳算得出來。</p>
-<p>AI 幻覺，白話講就是 AI 講得很有把握，內容卻是自己編的。客服 AI 編出一條不存在的規定，或報出一個沒根據的金額，客人看了都會當真。錯話送出去之後，要有人收拾，要賠錢，客人也可能就此走掉。</p>
-<p>下面先看三家真的付過錢的公司，再講怎麼把你家的這筆帳算出來。</p>
-<h2>真的有公司付過錢</h2>
-<p><strong>加拿大航空：機器人講錯，公司負責。</strong> 一位旅客在官網問聊天機器人喪親優惠票的規定，照著機器人說的去申請部分退款，卻被航空公司拒絕。航空公司主張機器人要為自己講的話負責，仲裁庭不接受，判航空公司要為網站上所有資訊負責，包括機器人講的（2024 年，<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" rel="noopener" target="_blank">美國律師協會整理</a>）。</p>
-<p><strong>Deloitte：報告裡的引用是編的，退款收場。</strong> 這家顧問公司交給澳洲政府一份 44 萬澳幣合約的報告，裡面有假的引用、不存在的註腳，還有一句編造的聯邦法院判決原文。修訂版寫明用了 Azure OpenAI GPT-4o，Deloitte 同意退還合約的最後一期款（2025 年，<a href="https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/" rel="noopener" target="_blank">The Register</a>）。</p>
-<p><strong>Cursor：AI 客服編了一條規定，傳出客人退訂。</strong> 使用者一直被登出，寫信問客服，AI 客服回說這是新的登入規定，屬於正常現象。這條規定根本不存在。事情傳開後，傳出有使用者取消訂閱，共同創辦人出面承認是前線 AI 客服回錯了，並道歉（2025 年，<a href="https://fortune.com/article/customer-support-ai-cursor-went-rogue" rel="noopener" target="_blank">Fortune</a>）。</p>
-<h2>錢花在哪裡</h2>
-<p>AI 亂講之後，錢通常花在這四個地方：</p>
-<ol><li><strong>人工時間</strong>：系統把錯話擋下來、轉給真人重新處理，每一次都是員工的時間。</li><li><strong>賠償或退款</strong>：錯話送到客人手上，公司要為它負責，加拿大航空就是例子。</li><li><strong>客人走掉</strong>：客人發現 AI 講的不是真的，不再信任你，可能直接不用了，Cursor 就是例子。</li><li><strong>重問一次</strong>：客人沒拿到答案，只好再問一次，客服的工作量和 AI 的用量都跟著多一輪。</li></ol>
-<h2>我們實測過一次</h2>
-<p>我們拿自己公開的一個英文示範客服 AI，照真實客服會遇到的情況出了 22 題，每題重複跑好幾次（2026 年 10 月）。結果 22 題裡 19 題沒過，其中兩個發現跟錢最有關係：</p>
-<ul><li><strong>金額亂寫</strong>：客人硬要它答應退 300 美元。跑 20 次，有 16 次草稿裡照寫了這個沒有根據的 300 美元。系統有一道金額檢查全部擋下，但其中 15 次只能轉給真人處理，等於這一題每 4 次就有 3 次要花人工。</li><li><strong>答應了卻沒人做</strong>：每 5 則回覆就有 4 則跟客人說「我查一下再回覆你」，系統裡卻沒有任何東西會真的去查、真的回覆（128 則裡 106 則），客人只能等，或是再問一次。</li></ul>
-<p>我們用的檢查都是寫死的規則，沒有用另一個 AI 來打分數，所以每個數字都能回頭對到原始的回覆。</p>
-<h2>怎麼算你家的</h2>
-<p>把你們自己的數字帶進這條算法，就能抓出 AI 亂講一個月大概花多少：</p>
-<p class="formula"><strong>每月亂講成本 = 每月對話數 × 亂講比例 × 每次亂講後的處理成本</strong></p>
-<ul><li><strong>每月對話數</strong>：後台就看得到。</li><li><strong>亂講比例</strong>：要用測的。挑你客戶真的會被問的題目，每題跑好幾次，算出錯的比例。同一個問題這次答對，下次可能答錯，所以只試一次不準。</li><li><strong>每次亂講後的處理成本</strong>：轉給真人的，算員工處理一則要幾分鐘乘上時薪；送到客人手上的，再加上可能的退款或賠償。</li></ul>
-<p>這個數字可以拿來決定：值不值得花錢把它修好。</p>
-<h2>你現在就能自己查的一件事</h2>
-<p>不用任何工具就能做。翻出你們 AI 上週送出的 20 則回覆，數有幾則說了「會再確認」「稍後回覆」「幫您查一下」。</p>
-<p>每一則都去找，有沒有一張工單或待辦，會讓這件事真的發生。找不到的，就是你們對客人許下、卻沒人去做的承諾。加拿大航空的例子說明，AI 講出去的話，公司要負責。</p>
-<h2>想請人幫你量</h2>
-<p>我們做的 AI 健檢，就是把上面的算法實際跑一遍：</p>
-<ol><li>從你客戶真的會被問的問題出題，先寫好怎樣算答對。</li><li>每題跑好幾次，算出亂講的比例，每個錯誤都追到出錯的那一層：模型、提示詞、資料、程式，還是外部系統。</li><li>修完用同一套題目再跑一次，前後對照。</li></ol>
-<p>你會拿到一份報告，和一套之後可以自己重跑的測試。想知道你家的 AI 多常亂講，歡迎來信：陳宇豐，<a href="mailto:ro159147@gmail.com">ro159147@gmail.com</a>。</p>
-<h2>出處</h2>
-<ul><li>加拿大航空：Moffatt v. Air Canada, 2024 BCCRT 149，<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" rel="noopener" target="_blank">美國律師協會整理</a></li><li>Deloitte：<a href="https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/" rel="noopener" target="_blank">The Register，2025-10-06</a></li><li>Cursor：<a href="https://fortune.com/article/customer-support-ai-cursor-went-rogue" rel="noopener" target="_blank">Fortune，2025-04-19</a></li><li>實測：示範客服 AI 健檢報告，2026-10-20（英文，可來信索取）</li></ul>
+<p>上週我們拿自己放在網路上的一個英文客服 AI 來測。其中一題很簡單，客人硬要它答應退 300 美元。結果跑了 20 次，有 16 次它在草稿裡就照寫了 300 美元，這個數字根本沒有任何根據。</p>
+<p>還好系統有一道金額檢查，把這 16 次全部攔了下來。但攔下來不代表沒事，其中 15 次最後只能轉給真人處理。算一算，這一題每 4 次就有 3 次要有人出來收拾。</p>
+<p>AI 把沒有根據的東西講得很有把握，就是大家說的 AI 幻覺。很多人覺得這只是丟臉而已，可是真的有公司為此付過錢。</p>
+<h2>已經有人為這個付錢</h2>
+<p>加拿大航空是很常被拿出來講的例子。有位旅客在官網問聊天機器人喪親優惠票怎麼申請，照著機器人講的去申請部分退款，結果被航空公司拒絕。航空公司還主張機器人要為自己講的話負責，法庭沒有接受。法庭認定公司要為網站上的所有資訊負責，機器人講的也算在內（2024 年，<a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" rel="noopener" target="_blank">美國律師協會的整理</a>）。</p>
+<p>Deloitte 那次是報告出包。他們交給澳洲政府一份 44 萬澳幣合約的報告，裡面有假的引用、不存在的註腳，還有一句編造的聯邦法院判決原文。修訂版寫明用了 Azure OpenAI GPT-4o，最後 Deloitte 同意退還合約的最後一期款（2025 年，<a href="https://www.theregister.com/2025/10/06/deloitte_ai_report_australia/" rel="noopener" target="_blank">The Register</a>）。</p>
+<p>Cursor 則是客服出包。使用者一直被登出，寫信去問，AI 客服回說這是新的登入規定、屬於正常現象，但這條規定根本不存在。事情傳開後傳出有人退訂，共同創辦人出來承認是前線 AI 客服回錯了，也道了歉（2025 年，<a href="https://fortune.com/article/customer-support-ai-cursor-went-rogue" rel="noopener" target="_blank">Fortune</a>）。</p>
+<h2>錢到底花在哪</h2>
+<p>我們整理下來，AI 亂講之後的成本大概落在幾個地方。最直接的是人工，錯話被擋下來，就得有人接手重新處理。擋不住、送到客人手上的，就像加拿大航空那樣，公司要負責。再來是客人的信任，Cursor 那次就是客人直接退訂。還有一種比較少人注意：客人沒拿到答案只好再問一次，客服的工作量多一輪，AI 的用量也跟著多一輪。</p>
+<p>我們那次測試裡最多的問題，其實就是這種。每 5 則回覆就有 4 則跟客人說「我查一下再回覆你」，128 則裡有 106 則。可是系統裡沒有任何東西會真的去查、真的回覆，客人只能等，或是再問一次。</p>
+<h2>怎麼算自己家的</h2>
+<p>算法不難：一個月的對話數，乘上 AI 亂講的比例，再乘上每次收拾要花的錢。對話數後台就看得到。收拾的錢，轉真人的就算員工處理一則要幾分鐘再乘時薪，送到客人手上的再加上可能的退款或賠償。</p>
+<p>比較難的是亂講的比例，這個一定要用測的。同一個問題這次答對，下次可能就答錯，只試一次看不出來。我們的做法是從客人真的會問的問題出題，每題跑好幾次，算出錯的比例。檢查用的是寫死的規則，沒有再叫另一個 AI 來打分數，所以每個數字都能回頭對到原始的回覆。</p>
+<p>算出來的數字，可以拿來決定值不值得花錢把它修好。</p>
+<h2>你今天就能先查的一件事</h2>
+<p>不用任何工具。把你們 AI 上週送出去的 20 則回覆翻出來，數一下有幾則講了「會再確認」「稍後回覆」「幫您查一下」。然後每一則都去找，看有沒有一張工單或待辦，會讓這件事真的發生。找不到的，就是對客人許下了、卻沒人去做的承諾。加拿大航空那次的裁決說得很清楚，AI 講出去的話，公司要負責。</p>
+<p>如果你想知道自家的 AI 多常亂講，可以寫信給我們：<a href="mailto:ro159147@gmail.com">ro159147@gmail.com</a>，聯絡人陳宇豐。我們會從你們真實的客服問題出題，每題跑好幾次，把每個錯誤追到出錯的那一層：模型、提示詞、資料、程式，還是外部系統。修完之後，再用同一套題目跑一次給你看。測試題和程式也會留給你們，之後改了東西可以自己重跑。</p>
+<p>完整的英文測試報告，也可以寫信來索取。</p>
 </main>
 </body>
 </html>
